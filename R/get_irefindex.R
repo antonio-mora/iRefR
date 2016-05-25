@@ -74,7 +74,7 @@ get_irefindex = function(tax_id="All", iref_version="current", data_folder=getwd
 		irefindex_tab = unique(read.table(txtfile, header=TRUE, comment.char="", sep='\t', quote=""))
 		cat("File has been saved as:\n")
 		cat(paste(txtfile, "\n"))
-		save(file = paste(datafolder, "/", tax_id,".mitab.",date_fix,".RData",sep=""), list = "irefindex_tab")
+		#save(file = paste(datafolder, "/", tax_id,".mitab.",date_fix,".RData",sep=""), list = "irefindex_tab")
 	}
 
 	irefindex_tab
