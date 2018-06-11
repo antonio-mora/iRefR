@@ -47,7 +47,7 @@ get_irefindex = function(tax_id="All", iref_version="current", data_folder=getwd
 			url = paste("http://irefindex.org/download/irefindex/data/archive/release_", iref_version, "/psi_mitab/MITAB2.6/", tax_id, ".mitab.", release_date, ".txt.zip", sep="")
 		}
 		if (iref_version == "14.0") {
-			release_date = "07042015"
+			release_date = "04072015"
 			url = paste("http://irefindex.org/download/irefindex/data/archive/release_", iref_version, "/psi_mitab/MITAB2.6/", tax_id, ".mitab.", release_date, ".txt.zip", sep="")
 		}
 		if (iref_version == "15.0") {
@@ -57,13 +57,13 @@ get_irefindex = function(tax_id="All", iref_version="current", data_folder=getwd
 	}
 
 	# 3. Check if file already exists. Otherwise, download and save:
-	if (iref_version == "14.0") {
-			date_fix = "04072015"
-	} else {
-			date_fix = release_date
-	}	
+#	if (iref_version == "14.0") {
+#			date_fix = "04072015"
+#	} else {
+#			date_fix = release_date
+#	}	
 
-	file_location = paste(datafolder, "/", tax_id,".mitab.",date_fix,".txt",sep="")
+	file_location = paste(datafolder, "/", tax_id,".mitab.", release_date,".txt",sep="")
 	if (file.exists(file_location) == TRUE) {
 		cat("Reading available iRefIndex file...\n")
 		irefindex_tab = unique(read.table(file_location, header=TRUE, comment.char="", sep='\t', quote=""))
@@ -74,11 +74,11 @@ get_irefindex = function(tax_id="All", iref_version="current", data_folder=getwd
 		unzip(zipfile, exdir=datafolder)
 		file.remove(zipfile)
 		cat("Reading downloaded file...\n")
-		txtfile = paste(datafolder, "/", tax_id,".mitab.",date_fix,".txt", sep="")
+		txtfile = paste(datafolder, "/", tax_id,".mitab.", release_date,".txt", sep="")
 		irefindex_tab = unique(read.table(txtfile, header=TRUE, comment.char="", sep='\t', quote=""))
 		cat("File has been saved as:\n")
 		cat(paste(txtfile, "\n"))
-		#save(file = paste(datafolder, "/", tax_id,".mitab.",date_fix,".RData",sep=""), list = "irefindex_tab")
+		#save(file = paste(datafolder, "/", tax_id,".mitab.", release_date,".RData",sep=""), list = "irefindex_tab")
 	}
 
 	irefindex_tab
