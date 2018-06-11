@@ -47,7 +47,7 @@ get_irefindex = function(tax_id="All", iref_version="current", data_folder=getwd
 			url = paste("http://irefindex.org/download/irefindex/data/archive/release_", iref_version, "/psi_mitab/MITAB2.6/", tax_id, ".mitab.", release_date, ".txt.zip", sep="")
 		}
 		if (iref_version == "14.0") {
-			release_date = "04072015"
+			release_date = "07042015"
 			url = paste("http://irefindex.org/download/irefindex/data/archive/release_", iref_version, "/psi_mitab/MITAB2.6/", tax_id, ".mitab.", release_date, ".txt.zip", sep="")
 		}
 		if (iref_version == "15.0") {
