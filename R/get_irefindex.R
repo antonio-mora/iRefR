@@ -59,10 +59,7 @@ get_irefindex = function(tax_id="All", iref_version="current", data_folder=getwd
 	# 3. Check if file already exists. Otherwise, download and save:
 	if (iref_version == "14.0") {
 			txt_date_fix = "04072015"
-	} else {
-			txt_date_fix = release_date
-	}	
-	if (iref_version == "15.0") {
+	} else if (iref_version == "15.0") {
 			txt_date_fix = "01-22-2018"
 	} else {
 			txt_date_fix = release_date
